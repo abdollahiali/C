@@ -1,5 +1,5 @@
 /*
-This exmple shows the two forks.
+This exmple has three forks.
 Note that when a process is forked using pid_i = Fork();
 Then, the process will itself has a nonzero pid (which can be obtained using getpid() function), but pid_i is zero inside the child process
 and it is equal to the forked process ID in the parent process.
