@@ -38,15 +38,20 @@ int main(int argc, char *argv[])
     return 0;
 }
 
+
 void sigint_handler_wakeup(int sig)
 {
-    printf("\nSIGINT handler used in wakeup() function.\n");
+    // printf is not safe inside a signal handler; use write
+    // printf("\nSIGINT handler used in wakeup() function.\n");
+    write(1, "\nSIGINT handler used in wakeup() function.\n", 44); // 44 chars
     return;
 }
 
 void sigint_handler_main(int sig)
 {
-    printf("\nSIGINT handler used in main() function.\n");
+    // printf is not safe inside a signal handler; use write
+    // printf("\nSIGINT handler used in main() function.\n");
+    write(1, "\nSIGINT handler used in main() function.\n", 42); // 42 chars
     exit(0);
 }
 
