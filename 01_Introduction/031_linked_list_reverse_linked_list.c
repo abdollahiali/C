@@ -41,6 +41,19 @@ struct Node* insert_node_at_specific_place(struct Node* head, int target_val, in
     return(head);
 }
 
+void free_ll(struct Node* head) {
+    if (head == NULL)
+        return;
+    
+    struct Node* current = head;
+    while(current) {
+        struct Node* tmp =current;
+        current = current->next;
+        free(tmp);
+    }
+    return;
+}
+
 struct Node* reverse_ll_iterative(struct Node* head) {
     if (head == NULL || head->next == NULL)
         return(head);
@@ -86,5 +99,7 @@ int main(void) {
     prime_numbers = reverse_ll_recursive(prime_numbers);
     printf("\n\nReversed the reverse, recursively:\n");
     print_ll(prime_numbers);
+
+    free_ll(prime_numbers);
     return(0);
 }
